@@ -11,7 +11,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable pnpm && pnpm run build
+RUN corepack enable pnpm && pnpm run build  # Build the app
 
 # Stage 3: Production image
 FROM nginxinc/nginx-unprivileged:stable AS production
